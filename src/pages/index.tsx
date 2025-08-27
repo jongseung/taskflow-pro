@@ -6,9 +6,11 @@ function App() {
   return (
     <div className="page">
       <AppHeader />
-      <div className="container w-full h-full flex justify-start items-center">
-        <AppSidebar />
-        <div className="content w-full h-full"></div>
+      <div className="container">
+        <main className="w-full h-full min-h-[720px] flex p-6 gap-6">
+          <AppSidebar />
+          <div className="content w-full h-full"></div>
+        </main>
       </div>
       <AppFooter />
     </div>
