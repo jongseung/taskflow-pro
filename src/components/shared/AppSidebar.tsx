@@ -94,7 +94,7 @@ function AppSidebar() {
               }}
               className={`justify-start text-base transition-all duration-500 ${
                 activeMenu === menu.id
-                  ? "text-white bg-primary/10"
+                  ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:text-white hover:pl-6"
               }`}
             >
