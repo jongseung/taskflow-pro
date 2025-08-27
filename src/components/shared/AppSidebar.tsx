@@ -10,6 +10,7 @@ import {
 import { Button } from "../ui";
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface MenuItem {
   id: string;
@@ -83,23 +84,29 @@ function AppSidebar() {
           return (
             <Button
               key={menu.id}
+              asChild
               variant={"ghost"}
-              onClick={() => {
-                setActiveMenu(menu.id);
-                if (menu.showProjects) {
-                  setShowProjects(true);
-                } else {
-                  setShowProjects(false);
-                }
-              }}
               className={`justify-start text-base transition-all duration-500 ${
                 activeMenu === menu.id
                   ? "bg-accent text-accent-foreground"
                   : "text-muted-foreground hover:text-white hover:pl-6"
               }`}
             >
-              {menu.icon}
-              {menu.label}
+              <Link
+                className={`flex items-center gap-2`}
+                to={menu.path}
+                onClick={() => {
+                  setActiveMenu(menu.id);
+                  if (menu.showProjects) {
+                    setShowProjects(true);
+                  } else {
+                    setShowProjects(false);
+                  }
+                }}
+              >
+                {menu.icon}
+                {menu.label}
+              </Link>
             </Button>
           );
         })}
